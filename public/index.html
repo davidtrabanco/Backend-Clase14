@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/skeleton.css">
+
+    <title>Clase 12</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/ejs.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+
+        <h5>Productos</h5>
+        <h6>Ingrese Nuevo Producto</h6>
+
+        <div>
+            <form action="" id="newProductFrom">
+                <input type="text" id="title" required placeholder="Nombre">
+                <input type="text" id="price" required placeholder="Precio" >
+                <input type="text" id="thumbnail" required placeholder="URL Imágen">
+                <button type="submit" class="bttnCreateProd button-primary" form="newProductFrom">Cargar</button>
+            </form>
+        </div>
+
+        <h6>Filtrar productos</h6>
+        <div class="row">
+            <form action="" id="filterProducts">
+                <select name="field" id="fField">
+                    <option value="id" selected>ID</option>
+                    <option value="title">Producto</option>
+                    <option value="price">Precio</option>
+                  </select>
+                <select name="comparison" id="fComparison">
+                    <option value="="selected>igual a</option>
+                    <option value="!=">diferente de</option>
+                    <option value="<">menor a</option>
+                    <option value=">">mayor a</option>
+                    <option value="<=">menor o igual a</option>
+                    <option value=">=">mayor o igual a</option>
+                </select>
+                <input type="text" name="value" id="fValue" required placeholder="valor">
+                <button type="submit" class="bttnFilterProd button-primary" form="filterProducts">Ver</button>
+                <button type="button" class="bttnDelFilterProd secondary-primary" form="filterProducts">Eliminar</button>
+            </form>
+       
+        </div>
+        
+
+    </div>
+
+    <div class="row">
+        <h5>Lista de Productos</h5>
+        <div class='productsList eight columns'>
+            <!-- Aquí inserto tabla productos -->
+        </div>
+    </div>
+
+    <div class="row">
+        <h4>Mensajes</h4>
+
+            <form onsubmit="" id="sendMessageForm">
+                <div>
+                    e-mail <input type="email" id="email" required placeholder="usuario@dominio.com" form="sendMessageForm">
+                </div>
+
+                <div class='chat'>
+                    <ul class="messagesList">
+                        <!-- Aquí inserto chats -->
+                    </ul>
+                </div>
+
+                <div>
+            
+                <input type="text" id="message" class="five columns" required form="sendMessageForm" placeholder="Mensaje">
+                <button type="submit" form="sendMessageForm" class="bttnSendMsg button-primary">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/products.js"></script>
+    <script type="module" src="./js/chat.js"></script>
+    <script type="module" src="./js/filterProducts.js"></script>
+</body>
+</html>
