@@ -10,8 +10,9 @@ const tableStructure = (table) => {
     table.string('date');
 }
 
-//creo la tabla productos
+//creo la tabla productos en variable
 export const tableChat = new TableManager(dbChatConnection,'chat',tableStructure);
 
-//tableChat.initTable();
+//si no existe en BD la creo:
+tableChat.createTableIfNotExists();
 

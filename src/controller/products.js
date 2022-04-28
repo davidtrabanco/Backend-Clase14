@@ -12,5 +12,6 @@ const tableStructure = (table) => {
 //creo la tabla productos
 export const tableProducts = new TableManager(dbProductsConnection,'products',tableStructure);
 
-//La inicializo:
-//tableProducts.initTable();
+//Si la tabla no existe la creo:
+tableProducts.createTableIfNotExists();
+

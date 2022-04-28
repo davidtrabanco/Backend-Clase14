@@ -7,9 +7,12 @@ export default class TableManager{
     }
 
     createTableIfNotExists = async ()=> {
-        const exists = await this.dbKnex.hasTable(this.tableName)
+        const exists = await this.dbKnex.schema.hasTable(this.tableName)
         if(exists){
-            console.log();
+            console.log(`Table: "${this.tableName}" already exists`);
+        }else{
+            console.log(`Table: "${this.tableName}" not found`);
+            this.initTable();
         }
 
     }
@@ -26,7 +29,7 @@ export default class TableManager{
     createTable = async()=>{
         try {
             await this.dbKnex.schema.createTable(this.tableName,this.structure)
-            console.log(`Table: ${this.tableName} was created successfully`)
+            console.log(`Table: "${this.tableName}" was created successfully`);
             //this.dbKnex.destroy()
             return null;
         } catch (error) {
